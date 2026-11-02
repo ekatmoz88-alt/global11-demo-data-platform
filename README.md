@@ -22,6 +22,7 @@
 - [Заметки по восстановлению модели](docs/model/model-recovery-notes.md)
 - [Архитектура и риски C#-слоя](docs/architecture/data-access-review.md)
 - [Обзор ModuleMobile, ModuleStationary и PassportPaint](docs/architecture/application-suite-review.md)
+- [Состав репозитория и что ещё требуется для полной загрузки исходников](docs/architecture/repository-completeness.md)
 
 ## Извлечённая инвентаризация
 
@@ -47,6 +48,10 @@
 3. `SQLiteMaps.cs` описывает отображение отдельных запросов в модели приложения, но SQL-запросы, модели `Common.Data.Models` и схема SQLite не предоставлены.
 4. Совпадение имён/полей между Oracle-моделью и SQLite не считается доказательством связи между системами.
 5. В исходном коде есть вопросы управления временем жизни соединения и команд; см. архитектурный обзор.
+
+## Полнота исходников приложений
+
+В репозитории размещены архив Oracle-модели, предоставленные файлы слоя SQLite и восстановленная техническая документация. Полные исходные проекты WPF-приложений ModuleMobile, ModuleStationary, Common.Wpf и PassportPaint (включая .sln/.csproj и ресурсы) пока не загружены. Подробная инвентаризация и список недостающих материалов: [repository-completeness.md](docs/architecture/repository-completeness.md).
 
 ## Сборка
 

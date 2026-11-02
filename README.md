@@ -21,6 +21,7 @@
 - [SQL-каркас](docs/sql/sql-review-scaffold.sql)
 - [Заметки по восстановлению модели](docs/model/model-recovery-notes.md)
 - [Архитектура и риски C#-слоя](docs/architecture/data-access-review.md)
+- [Обзор ModuleMobile, ModuleStationary и PassportPaint](docs/architecture/application-suite-review.md)
 
 ## Извлечённая инвентаризация
 

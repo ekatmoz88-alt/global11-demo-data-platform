@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Портфолио технического анализа корпоративных приложений, интеграций, SQLite и Oracle Data Modeler.">
+<title>IT-проекты — архитектура, системный анализ, данные</title>
+<style>
+:root{color-scheme:dark;--bg:#10151d;--panel:#192230;--text:#edf2f8;--muted:#a9b7c8;--accent:#75c7bb;--line:#2b394a}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#10151d,#172331 65%,#102c30);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:1050px;margin:auto;padding:48px 22px 72px}.hero{padding:42px 0 34px;border-bottom:1px solid var(--line)}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem}h1{font-size:clamp(2.2rem,6vw,4.3rem);line-height:1.06;max-width:850px;margin:16px 0}h2{font-size:1.55rem;margin:0 0 14px}h3{font-size:1.12rem;margin:0 0 8px}p{margin:8px 0;color:var(--muted)}.lead{font-size:1.15rem;max-width:780px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn{display:inline-block;padding:10px 16px;border-radius:9px;background:var(--accent);color:#10201f;text-decoration:none;font-weight:700}.btn.secondary{background:transparent;color:var(--text);border:1px solid var(--line)}section{padding:34px 0;border-bottom:1px solid var(--line)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px}.card{background:rgba(25,34,48,.88);border:1px solid var(--line);border-radius:14px;padding:20px}.tag{display:inline-block;color:var(--accent);font-size:.82rem;margin:0 7px 5px 0}.card ul{padding-left:20px;color:var(--muted)}a{color:var(--accent)}.links{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px}.note{font-size:.9rem;color:var(--muted)}footer{padding-top:26px;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body><main>
+<header class="hero">
+<div class="eyebrow">Портфолио · IT / системный анализ</div>
+<h1>Архитектура приложений и анализ данных</h1>
+<p class="lead">Техническое исследование корпоративного программного комплекса: клиентские приложения WPF, интеграции с UMMS и ФИАС, локальное хранение SQLite, а также отдельная демонстрационная OLAP-модель Oracle.</p>
+<div class="actions">
+<a class="btn" href="https://github.com/ekatmoz88-alt/global11-demo-data-platform">Открыть репозиторий GitHub</a>
+<a class="btn secondary" href="docs/architecture/application-suite-review.md">Читать архитектурный обзор</a>
+</div>
+</header>
+<section><h2>Проекты и результаты</h2><div class="grid">
+<article class="card"><span class="tag">WPF · SOAP · UMMS</span><h3>Комплекс клиентских приложений</h3><p>Исследование ролей ModuleMobile и ModuleStationary, сценариев поиска и обработки досье, передачи данных через зашифрованные XML-файлы и съёмный носитель.</p><ul><li>Карта компонентов и потоков данных</li><li>Сценарии экспорта, импорта и синхронизации</li><li>Границы подтверждённых интеграций</li></ul><a href="docs/architecture/application-suite-review.md">Открыть обзор →</a></article>
+<article class="card"><span class="tag">ФИАС · SOAP · UI</span><h3>Поиск документов и адресов</h3><p>Разбор пользовательских критериев поиска, преобразования параметров в SOAP-запросы и обращения к сервису адресных объектов ФИАС.</p><ul><li>Маппинг критериев и полей запроса</li><li>Поведение UI и справочников</li><li>Технические ограничения и замечания</li></ul><a href="docs/architecture/application-suite-review.md#раздел-16">Перейти к архитектурному документу →</a></article>
+<article class="card"><span class="tag">SQLite · C#</span><h3>Локальный слой хранения</h3><p>Анализ провайдеров доступа к SQLite, управления соединениями, команд и чтения данных. Отдельно зафиксированы ограничения доступных исходников.</p><ul><li>Разбор ConnectionFactory</li><li>Анализ SQLiteCommandEx и reader</li><li>Риски жизненного цикла ресурсов</li></ul><a href="docs/architecture/data-access-review.md">Открыть обзор слоя данных →</a></article>
+<article class="card"><span class="tag">Oracle · OLAP · Data Modeler</span><h3>Демонстрационная модель GLOBAL11</h3><p>Восстановление структуры модели из архива Oracle Data Modeler и подготовка материалов для анализа.</p><ul><li>5 измерений, 7 иерархий, 24 уровня</li><li>1 куб и 3 меры</li><li>ER/OLAP-диаграммы и словарь данных</li></ul><div class="links"><a href="docs/model/olap-diagram.mmd">OLAP</a><a href="docs/model/er-diagram.mmd">ER</a><a href="data-dictionary/global11_data_dictionary.xlsx">Excel-словарь</a></div></article>
+</div></section>
+<section><h2>Технологии и артефакты</h2><div class="card"><p><span class="tag">C#</span><span class="tag">WPF</span><span class="tag">SQLite</span><span class="tag">Oracle Data Modeler</span><span class="tag">OLAP</span><span class="tag">SOAP</span><span class="tag">XML</span><span class="tag">Mermaid</span><span class="tag">Excel</span></p><div class="links"><a href="README.md">README проекта</a><a href="docs/architecture/repository-completeness.md">Состав репозитория и ограничения</a><a href="docs/sql/sql-review-scaffold.sql">SQL-каркас для ревью</a></div></div></section>
+<section><h2>Прозрачность и границы проекта</h2><p>Это инженерная документация и результаты анализа предоставленных материалов, а не демонстрационный production-сервис. Полные исходные проекты WPF-приложений, файл MainDB.db3 и полная схема SQLite в репозитории отсутствуют. SQL-файл Oracle — каркас для ревью, не готовый исполняемый DDL. Связь OLAP-модели Oracle с WPF-комплексом не подтверждена.</p><p>В описаниях разделены подтверждённые по исходникам факты и технические гипотезы. Персональный вклад и роль автора здесь намеренно не заявлены.</p></section>
+<footer>Портфолио собрано на основе материалов репозитория GitHub. Контактные данные и сведения об авторстве добавляются отдельно.</footer>
+</main></body></html>

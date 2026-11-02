@@ -1,0 +1,19 @@
+# Build
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# Local databases and secrets
+*.db
+*.db3
+*.sqlite
+*.sqlite3
+*.bak
+.env
+*.secrets
+
+# IDE
+.idea/
+.vscode/

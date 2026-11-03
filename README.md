@@ -12,6 +12,7 @@
 - `docs/sql/` — SQL-каркас для ревью; намеренно не исполняемый DDL.
 - `data-dictionary/` — Excel-словарь данных, извлечённый из XML.
 - `docs/architecture/` — архитектурные заметки и границы достоверности.
+- `docs/GLOBAL11-OLAP-DOCUMENTATION.md` — отдельный архитектурный кейс по проектированию реляционной и многомерной OLAP-модели Global11.
 
 ## Быстрый просмотр
 
@@ -23,6 +24,7 @@
 - [Архитектура и риски C#-слоя](docs/architecture/data-access-review.md)
 - [Обзор ModuleMobile, ModuleStationary и PassportPaint](docs/architecture/application-suite-review.md)
 - [Состав репозитория и что ещё требуется для полной загрузки исходников](docs/architecture/repository-completeness.md)
+- [Global11 OLAP: multidimensional documentation](docs/GLOBAL11-OLAP-DOCUMENTATION.md)
 
 ## Извлечённая инвентаризация
 
@@ -40,6 +42,20 @@
 | Физические столбцы | 140 |
 
 Количество отражает XML-объекты, найденные при обработке архива, а не проверенное состояние работающей БД.
+
+## Global11 OLAP case study
+
+Отдельный документ [GLOBAL11 Multidimensional OLAP Metadata Documentation](docs/GLOBAL11-OLAP-DOCUMENTATION.md) описывает проектируемую архитектуру преобразования реляционных источников в целевую многомерную модель.
+
+В документ входят:
+
+1. **Relational design intent** — иллюстративные DDL-примеры для role-playing time keys и физической consolidation table.
+2. **Logical data model** — Mermaid ER-диаграмма с отношениями, кардинальности которых требуют сверки с исходной схемой.
+3. **Time dimension roles** — концепция раздельного анализа shipment и delivery periods; приведённая базовая инициализация присваивает обеим ролям одинаковые значения и не моделирует реальные разные даты событий.
+4. **OLAP hierarchy patterns** — level-based, parent-child и ragged/skip-level структуры.
+5. **Conceptual Oracle OLAP artifacts** — авторская XML-схема, PL/SQL orchestration pseudocode и SQL-шаблон аналитического доступа.
+
+**Validation status:** SQL DDL, XML, PL/SQL и аналитические SQL-примеры в этом кейсе являются проектными/иллюстративными материалами. Они не заявляются как выполненные или проверенные на работающем Oracle OLAP instance. Кардинальности, ключи, аддитивность мер и бизнес-семантика требуют отдельной проверки.
 
 ## Важные ограничения
 

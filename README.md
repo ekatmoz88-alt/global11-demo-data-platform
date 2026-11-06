@@ -1,68 +1,62 @@
-# global11-demo-data-platform
+# GLOBAL11 Demo Data Platform
 
-Репозиторий объединяет восстановленные материалы модели Oracle Global11 Demo, документацию по реляционной и многомерной модели, SQL-скрипты подготовки схемы и источники.
+Documentation and reproducible analysis of the **Global11_demo Data Modeler** learning project based on the Oracle Global 11g sample schema.
 
-## Назначение
+This repository is dedicated to the Oracle relational model, its documented demonstration changes, the data dictionary, and conceptual OLAP artefacts. It does not document the separate Deshifrator WPF application suite.
 
-Документировать и воспроизводимо описать учебный проект **Global11_demo Data Modeler** на основе схемы Oracle Global 11g. Проект использует реляционную схему `GLOBAL` как источник данных и описывает изменения, необходимые для демонстрации role-playing time dimensions и объединённых атрибутов клиента/аккаунта.
+## Scope
 
-**Важно:** проектная инструкция прямо запрещает создавать Analytic Workspace. Скрипт `global_11g_create_cubes.sql` из исходного Oracle-архива не входит в последовательность установки и не должен запускаться для этого сценария.
+- Oracle Global 11g sample schema and the `GLOBAL` relational model.
+- Data dictionary extracted from the supplied project materials.
+- Role-playing time-key demonstration in `GLOBAL.UNITS_FACT`.
+- CTAS creation of `CUST_ACCOUNT`.
+- Conceptual OLAP model inventory and diagrams.
 
-## Структура репозитория
+## Repository structure
 
-- `docs/GLOBAL11-OLAP-DOCUMENTATION.md` — архитектурная документация и концептуальные OLAP-паттерны.
-- `docs/GLOBAL11-DEMO-SETUP.md` — порядок установки и описание подтверждённых изменений схемы.
-- `docs/model/GLOBAL11-RELATIONAL-MODEL.md` — таблицы, связи и ограничения интерпретации.
-- `docs/sources/ORACLE-GLOBAL11-SOURCES.md` — перечень исходного Oracle-пакета и официальных ссылок.
-- `sql/01_oracle12c_privileges.sql` — дополнительные привилегии для Oracle 12c.
-- `sql/02_global11_demo_schema_changes.sql` — изменения `UNITS_FACT` и создание `CUST_ACCOUNT`.
-- `sql/README.md` — порядок запуска и предупреждения для SQL.
-- `docs/model/` — ранее восстановленные диаграммы и заметки по модели.
-- `data-dictionary/` — ранее извлечённый словарь данных.
+- `docs/GLOBAL11-OLAP-DOCUMENTATION.md` — OLAP documentation and conceptual patterns.
+- `docs/GLOBAL11-DEMO-SETUP.md` — setup sequence and documented schema changes.
+- `docs/model/GLOBAL11-RELATIONAL-MODEL.md` — relational tables, relationships, and interpretation boundaries.
+- `docs/sources/ORACLE-GLOBAL11-SOURCES.md` — Oracle package inventory and source references.
+- `data-dictionary/` — extracted data dictionary.
+- `sql/` — reviewed SQL scripts and execution notes.
+- `sources/oracle/` — supplied Oracle Data Modeler archive.
 
-## Быстрый старт
+## Quick start
 
-1. Подготовить Oracle Global 11g sample schema по официальному README и дистрибутиву (ссылки в [источниках](docs/sources/ORACLE-GLOBAL11-SOURCES.md)).
-2. Установить схему `GLOBAL` штатным установочным сценарием Oracle.
-3. Для Oracle 12c выдать дополнительные права скриптом [01_oracle12c_privileges.sql](sql/01_oracle12c_privileges.sql).
-4. Один раз применить [02_global11_demo_schema_changes.sql](sql/02_global11_demo_schema_changes.sql).
-5. Не запускать `global_11g_create_cubes.sql`: Analytic Workspace для данного проекта не создаётся.
+1. Prepare the Oracle Global 11g sample schema using the official README and distribution referenced in [sources](docs/sources/ORACLE-GLOBAL11-SOURCES.md).
+2. Install the `GLOBAL` schema using its documented installation procedure.
+3. For Oracle 12c, apply the additional privileges in [01_oracle12c_privileges.sql](sql/01_oracle12c_privileges.sql).
+4. Apply [02_global11_demo_schema_changes.sql](sql/02_global11_demo_schema_changes.sql) once.
+5. Do not run `global_11g_create_cubes.sql` for this scenario: the project instructions explicitly exclude Analytic Workspace creation.
 
-Подробности: [Global11 Demo Setup](docs/GLOBAL11-DEMO-SETUP.md).
-
-## Подтверждённые изменения GLOBAL
+## Confirmed demonstration changes
 
 ### Role-playing time keys
 
-В `GLOBAL.UNITS_FACT` добавляются:
+Two columns are added to `GLOBAL.UNITS_FACT`:
 
 - `SHIP_MONTH_ID VARCHAR2(7)`
 - `DELIVERY_MONTH_ID VARCHAR2(7)`
 
-В исходной инструкции обе колонки заполняются из `MONTH_ID`. Это демонстрирует две роли одной временной размерности, но **не содержит независимых фактических дат отгрузки и доставки**.
+The supplied instruction populates both from `MONTH_ID`. This demonstrates two roles for one time dimension; it does not provide independent shipment and delivery dates.
 
 ### CUST_ACCOUNT
 
-Создаётся физическая таблица через `CREATE TABLE ... AS SELECT`, соединяющая `CUSTOMER_DIM` и `ACCOUNT` по `ACCOUNT_ID`. Это именно CTAS-таблица, не представление (view).
+A physical table is created using `CREATE TABLE ... AS SELECT`, joining `CUSTOMER_DIM` and `ACCOUNT` by `ACCOUNT_ID`. This is a CTAS table, not a view.
 
-## Источники и достоверность
+## Evidence and limitations
 
-Приоритет имеют предоставленная проектная инструкция и файлы Oracle Global 11g archive (README и SQL-скрипты). Проектные SQL-операторы перенесены с сохранением их семантики. Исполняемость в конкретной Oracle-инсталляции здесь не заявляется: перед запуском необходимо проверить версию БД, наличие объектов, права и то, что скрипты ещё не применялись.
+The primary evidence is the supplied project instruction and the Oracle Global 11g archive (README and SQL scripts). The documentation distinguishes source facts, archive inventory, conceptual OLAP patterns, and items requiring verification against a live database.
 
-Документация отделяет:
-- факты, непосредственно указанные в проектных материалах;
-- структуру исходного Oracle-пакета;
-- целевые/концептуальные OLAP-паттерны;
-- вопросы, требующие проверки на реальной БД.
+Execution in a specific Oracle installation is not claimed. Before running scripts, verify the database version, object availability, privileges, and whether the scripts have already been applied.
 
-## Известные ограничения
+- The schema-change scripts are intended for one-time application and are not idempotent.
+- Both role-playing columns initially receive the same `MONTH_ID`.
+- CTAS does not automatically reproduce all constraints, indexes, triggers, or later source-table changes.
+- Oracle 12c privileges are separate from the base schema installation.
+- OLAP artefacts in the documentation do not mean that an Analytic Workspace is created or deployed.
 
-- SQL-скрипты изменения схемы рассчитаны на однократное применение и не являются идемпотентными.
-- Обе role-playing колонки первоначально получают одинаковый `MONTH_ID`.
-- CTAS не переносит автоматически все ограничения, индексы, триггеры и последующие изменения исходных таблиц.
-- Дополнительные привилегии Oracle 12c отделены от базовой установки схемы.
-- Наличие демонстрационных OLAP-артефактов в документации не означает, что Analytic Workspace создаётся или развёртывается.
+## Project boundary
 
-## История документации
-
-Ранее восстановленные материалы по C# / SQLite и Data Modeler сохранены. Их связь с Oracle Global11 Demo не предполагается без подтверждающих схем, ключей и запросов.
+Deshifrator, ModuleMobile, ModuleStationary, PassportPaint, SQLite, and their C# source excerpts are documented separately in the [Deshifrator documentation repository](https://github.com/ekatmoz88-alt/deshifrator-docs). No technical relationship between that application suite and the Oracle GLOBAL11 model is asserted.

@@ -1,5 +1,7 @@
 # GLOBAL11 Demo Data Platform
 
+**Published documentation:** https://ekatmoz88-alt.github.io/global11-demo-data-platform/
+
 Documentation and reproducible analysis of the **Global11_demo Data Modeler** learning project based on the Oracle Global 11g sample schema.
 
 This repository is dedicated to the Oracle relational model, its documented demonstration changes, the data dictionary, and conceptual OLAP artefacts. It does not document the separate Deshifrator WPF application suite.

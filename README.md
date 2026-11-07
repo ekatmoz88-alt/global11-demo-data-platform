@@ -62,3 +62,8 @@ Execution in a specific Oracle installation is not claimed. Before running scrip
 ## Project boundary
 
 Deshifrator, ModuleMobile, ModuleStationary, PassportPaint, SQLite, and their C# source excerpts are documented separately in the [Deshifrator documentation repository](https://github.com/ekatmoz88-alt/deshifrator-docs). No technical relationship between that application suite and the Oracle GLOBAL11 model is asserted.
+
+
+## Tags
+
+`oracle` · `global11` · `data-modeling` · `sql` · `data-dictionary` · `database-documentation`

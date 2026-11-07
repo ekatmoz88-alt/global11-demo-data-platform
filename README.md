@@ -1,5 +1,7 @@
 # GLOBAL11 Demo Data Platform
 
+[English](README.md) | [Русский](README.ru.md)
+
 **Published documentation:** https://ekatmoz88-alt.github.io/global11-demo-data-platform/
 
 Documentation and reproducible analysis of the **Global11_demo Data Modeler** learning project based on the Oracle Global 11g sample schema.

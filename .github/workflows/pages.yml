@@ -1,10 +1,10 @@
-name: Deploy GLOBAL11 documentation to GitHub Pages
+name: Build and deploy GLOBAL11 documentation
 
 on:
   push:
     branches: [main]
     paths:
-      - "index.html"
+      - "mkdocs.yml"
       - "README.md"
       - "docs/**"
       - "data-dictionary/**"
@@ -31,16 +31,24 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
-      - name: Assemble public documentation site
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install MkDocs Material
+        run: pip install mkdocs-material
+      - name: Build documentation
+        run: mkdocs build --strict --site-dir _site
+      - name: Include data dictionary
         run: |
-          mkdir -p _site/docs _site/data-dictionary
-          cp index.html README.md _site/
-          cp -R docs/. _site/docs/
+          mkdir -p _site/data-dictionary
           cp -R data-dictionary/. _site/data-dictionary/
+          cp README.md _site/README.md
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+
   deploy:
     environment:
       name: github-pages

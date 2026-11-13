@@ -5,7 +5,6 @@ This script checks documentation consistency only. It does not connect to Oracle
 or validate physical database objects."""
 from __future__ import annotations
 
-import re
 import sys
 from pathlib import Path
 
@@ -47,7 +46,7 @@ def main() -> None:
     if missing_sections:
         fail("Missing sections: " + ", ".join(missing_sections))
 
-    rows = re.findall(r"^\\|\\s*\\d+\\s*\\|\\s*`([^`]+)`\\s*\\|", content, re.MULTILINE)
+    rows = [line.split("|")[2].strip().strip("`") for line in content.splitlines() if line.startswith("|") and len(line.split("|")) > 3 and line.split("|")[1].strip().isdigit()]
     if len(rows) != len(EXPECTED_COLUMNS):
         fail(f"Expected {len(EXPECTED_COLUMNS)} column rows, found {len(rows)}")
     duplicates = sorted({name for name in rows if rows.count(name) > 1})

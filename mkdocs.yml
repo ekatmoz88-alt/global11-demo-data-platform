@@ -11,6 +11,8 @@ nav:
   - Главная: index.md
   - Подготовка и изменения схемы: GLOBAL11-DEMO-SETUP.md
   - OLAP: GLOBAL11-OLAP-DOCUMENTATION.md
+  - DMRS Repository Metadata:
+      - DMRS_DOMAINS: data-dictionary/dmrs-domains.md
   - Реляционная модель:
       - Обзор GLOBAL: model/GLOBAL11-RELATIONAL-MODEL.md
       - Географическое измерение GEO_ROLLUP: model/geographical-dimension.md

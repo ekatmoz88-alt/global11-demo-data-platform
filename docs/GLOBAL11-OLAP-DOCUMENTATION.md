@@ -1,12 +1,12 @@
 # GLOBAL11 Multidimensional OLAP Metadata Documentation
 
-This document describes the architectural framework, relational source structures, and conceptual multidimensional design patterns developed for the **Global11** case study. The goal is to model relational schema structures into an enterprise analytical workspace environment.
+This document describes the architecture, relational source structures, and OLAP design work for the real **Global11** data platform, historically deployed and operated on an office server with Oracle Global 11g. The relational platform is real; the multidimensional artefacts below are documented design patterns and are kept distinct from deployed OLAP objects.
 
 ---
 
 ## 1. Project Description & Architecture Overview
 
-The Global11 case study focuses on data engineering workflows that transform transactional data into optimized multidimensional structures. The architecture bridges the gap between highly normalized relational storage and high-performance Online Analytical Processing (OLAP) systems.
+The Global11 project covers data-engineering workflows for transforming transactional data into analytical structures. The architecture bridges the gap between highly normalized relational storage and high-performance Online Analytical Processing (OLAP) systems.
 
 ### Core Architectural Layers
 
@@ -16,19 +16,18 @@ The Global11 case study focuses on data engineering workflows that transform tra
 
 ---
 
-## 2. Target Relational Schema Setup (Design Intent)
+## 2. Relational Schema Changes Documented for the Project
 
-The DDL statements describe the intended relational structure. They are illustrative design artifacts and have not been executed or validated against a live database instance.
+The DDL statements describe schema changes associated with the Global11 project. The platform itself was deployed and operated on an office server. The current state of the historical database was not queried again during preparation of this portfolio documentation.
 
 ```sql
 -- 1. Intended modifications to the transactional fact table to support role-playing dimensions
 ALTER TABLE global.units_fact ADD SHIP_MONTH_ID varchar2(7);
 ALTER TABLE global.units_fact ADD DELIVERY_MONTH_ID varchar2(7);
 
--- NOTE: This is an illustrative technical initialization that populates both roles with
--- identical baseline IDs. It does not represent independently sourced shipment and delivery
--- event dates. In a production design, the columns would be populated from their respective
--- business event dates to support separate shipment-period and delivery-period analysis.
+-- The project change set initializes both role keys from MONTH_ID.
+-- They therefore contain identical baseline values; this does not reconstruct
+-- independently sourced shipment and delivery event dates.
 UPDATE global.units_fact SET SHIP_MONTH_ID = MONTH_ID;
 UPDATE global.units_fact SET DELIVERY_MONTH_ID = MONTH_ID;
 
@@ -65,7 +64,7 @@ The operational and analytical layout incorporates three complementary diagrams 
 
 ### Entity Relationship Diagram (Relational Blueprint)
 
-The diagram presents illustrative logical relationships. Foreign-key constraints and cardinalities require validation against the original database schema.
+The diagram summarizes logical relationships in the project data model. Physical constraints and cardinalities should be interpreted from the corresponding source DDL or database metadata where available.
 
 ```mermaid
 erDiagram
@@ -239,4 +238,4 @@ The following official Oracle documentation pages provide version-specific refer
 
 ## Validation Status
 
-This document describes design intent and conceptual examples. It does not claim that the illustrative DDL, XML, PL/SQL, or analytical SQL has been executed or validated against a live Oracle OLAP environment. Relationship cardinalities, foreign-key assumptions, measure additivity, and business event date mappings require confirmation against authoritative source schema and business rules.
+The document describes the real Global11 relational platform and separates it from the proposed OLAP layer. The XML, PL/SQL, cube, and analytical-query fragments in the OLAP sections are design artefacts; they do not assert that an Analytic Workspace or cube was created. The relational system's historical deployment on an office server is distinct from the implementation status of these OLAP artefacts. Relationship cardinalities, measure additivity, and business event-date mappings must follow the authoritative source model and business rules.

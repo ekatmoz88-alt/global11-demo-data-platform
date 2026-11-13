@@ -236,6 +236,13 @@ The following official Oracle documentation pages provide version-specific refer
 
 ---
 
+## Final Cube_1111 Specification
+
+The consolidated final design summary, submitted DDL, SQL validation query, requirement checklist, and high-level Mermaid diagram are maintained in [the final Cube_1111 specification](model/CUBE-1111-FINAL-SPECIFICATION.md) and [the OLAP diagram source](model/olap-diagram.mmd).
+
+**Documentation Status:** Documentation Complete.  
+**Technical Validation:** Pending — execution of the submitted scripts and inspection of the objects in Oracle AW 11gR2 / JDBC `Global_11r21` remain outstanding.
+
 ## Validation Status
 
 The document describes the real Global11 relational platform and separates it from the proposed OLAP layer. The XML, PL/SQL, cube, and analytical-query fragments in the OLAP sections are design artefacts; they do not assert that an Analytic Workspace or cube was created. The relational system's historical deployment on an office server is distinct from the implementation status of these OLAP artefacts. Relationship cardinalities, measure additivity, and business event-date mappings must follow the authoritative source model and business rules.

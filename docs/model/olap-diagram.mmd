@@ -1,75 +1,47 @@
-flowchart TB
-  C["Cube_1111<br/>Oracle AW: CUBE_1111"]
-  D_E46D500E["Dimension: Time"]
-  C --> D_E46D500E
-  D_136FDFF4["Dimension: Customers"]
-  C --> D_136FDFF4
-  D_474BD63F["Dimension: Product_VB"]
-  C --> D_474BD63F
-  D_400DCF40["Dimension: Product_d"]
-  C --> D_400DCF40
-  D_A6BB9419["Dimension: Shipto_Country"]
-  C --> D_A6BB9419
-  H_52829E60["Hierarchy: Ship_to_couuntry_hier<br/>default=false"]
-  L_2934810D["Level: SHIP_TO"]
-  H_52829E60 --> L_2934810D
-  L_116B1269["Level: Account_det"]
-  H_52829E60 --> L_116B1269
-  L_DDF01FA3["Level: City_lev_def"]
-  H_52829E60 --> L_DDF01FA3
-  L_E3D172DD["Level: State_Province"]
-  H_52829E60 --> L_E3D172DD
-  L_293B4C4E["Level: Country"]
-  H_52829E60 --> L_293B4C4E
-  H_DF6A0774["Hierarchy: Hierarchy_7<br/>default=false"]
-  L_48B0E33F["Level: Month_"]
-  H_DF6A0774 --> L_48B0E33F
-  L_470612FC["Level: Calendar_Quarter"]
-  H_DF6A0774 --> L_470612FC
-  L_A6F13826["Level: Calendar_Year"]
-  H_DF6A0774 --> L_A6F13826
-  L_6AA759DC["Level: Total"]
-  H_DF6A0774 --> L_6AA759DC
-  H_504CC846["Hierarchy: Hierarchy_8<br/>default=false"]
-  L_48B0E33F["Level: Month_"]
-  H_504CC846 --> L_48B0E33F
-  L_8C62AF9A["Level: Fiscal_Quarter"]
-  H_504CC846 --> L_8C62AF9A
-  L_76E5D44C["Level: Fiscal_Year"]
-  H_504CC846 --> L_76E5D44C
-  L_6AA759DC["Level: Total"]
-  H_504CC846 --> L_6AA759DC
-  H_7FB4E11E["Hierarchy: Hierarchy_5<br/>default=true"]
-  L_3B18749D["Level: Prod_child_parent"]
-  H_7FB4E11E --> L_3B18749D
-  H_74FC446E["Hierarchy: Shipments_<br/>default=false"]
-  L_2934810D["Level: SHIP_TO"]
-  H_74FC446E --> L_2934810D
-  L_1F0254DF["Level: WAREHOUSE"]
-  H_74FC446E --> L_1F0254DF
-  L_494C2042["Level: Region"]
-  H_74FC446E --> L_494C2042
-  L_8C827BFD["Level: Total"]
-  H_74FC446E --> L_8C827BFD
-  H_B1F12B04["Hierarchy: Cust_country<br/>default=true"]
-  L_88DE3FC8["Level: Shipto_ca"]
-  H_B1F12B04 --> L_88DE3FC8
-  L_9B3B0499["Level: Account_det_ca"]
-  H_B1F12B04 --> L_9B3B0499
-  L_29697BAB["Level: City_ca"]
-  H_B1F12B04 --> L_29697BAB
-  H_E9017C03["Hierarchy: Hierarchy_4<br/>default=true"]
-  L_BC274463["Level: ITEML"]
-  H_E9017C03 --> L_BC274463
-  L_E640273B["Level: FAMILY"]
-  H_E9017C03 --> L_E640273B
-  L_001D8D79["Level: CLASS"]
-  H_E9017C03 --> L_001D8D79
-  L_A33DAC83["Level: TOTAL_PRODUCT"]
-  H_E9017C03 --> L_A33DAC83
-  M_MSR_1["Measure: MSR_1<br/>source measure"]
-  C --> M_MSR_1
-  M_MSR_2["Measure: MSR_2<br/>CUBE_1111.MSR_1 * 2"]
-  C --> M_MSR_2
-  M_CALC_MSR1["Measure: CALC_MSR1<br/>RANK() OVER ( HIERARCHY CUSTOMERS.SHIP_TO_COUUNTRY_HIER ORDER BY CUBE_1111.MSR_1"]
-  C --> M_CALC_MSR1
+graph TD
+    %% Styles
+    classDef cube fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef dim fill:#fff3e0,stroke:#e65100,stroke-width:1px;
+    classDef hier fill:#f3e5f5,stroke:#4a148c,stroke-width:1px;
+    classDef fact fill:#e8f5e9,stroke:#1b5e20,stroke-width:1px;
+    classDef calc fill:#fce4ec,stroke:#880e4f,stroke-width:1px,stroke-dasharray: 5 5;
+
+    %% Cube
+    CUBE[Cube_1111<br/>Global11_demo]:::cube
+
+    %% Fact
+    FACT[(UNITS_FACT<br/>R_SHIP_TO_ID<br/>MONTH_ID / SHIP / DELIVERY<br/>UNITS)]:::fact --> CUBE
+
+    %% Time Dimension (Role Playing)
+    subgraph Time [Time Dimensions - Role Playing]
+        T1[TIME_DIM<br/>MONTH_ID]:::dim
+        T2[TIME_DIM_SHIP<br/>SHIP_MONTH_ID]:::dim
+        T3[TIME_DIM_DELIVERY<br/>DELIVERY_MONTH_ID]:::dim
+    end
+    T1 & T2 & T3 --> CUBE
+    T1 -. Rollup + Span/End .-> THier[Year/Quarter/Month]:::hier
+
+    %% Customer Dimension (Ragged)
+    subgraph Cust [Customer Dimension - Ragged/Skip-level]
+        CUST[CUSTOMER_DIM<br/>ACCOUNT_DET]:::dim
+        HIER[SHIP_TO_COUNTRY_HIER<br/>Skip: STATE/COUNTRY<br/>Rollup: CITY -> WAREHOUSE -> SHIP_TO]:::hier
+        CALC_ATTR[FULL_ADDRESS<br/>Calculated Attr<br/>IF Address2 IS NA...]:::calc
+    end
+    CUST --> CUBE
+    CUST --> HIER
+    CUST -.-> CALC_ATTR
+
+    %% Product Dimension
+    PROD[PRODUCT_DIM]:::dim --> CUBE
+
+    %% Measures
+    subgraph Measures [Measures]
+        MSR1[MSR_1<br/>Basic Measure<br/>Mapped to UNITS_FACT.UNITS<br/>SUM]:::fact
+        MSR2[MSR_2<br/>Calculated<br/>TOTAL(MSR_1)]:::calc
+        RANK[CALC_MSR1<br/>Calculated<br/>RANK OVER Hierarchy]:::calc
+    end
+    MSR1 & MSR2 & RANK --> CUBE
+
+    %% Export Note
+    EXP[Export to Oracle AW<br/>Mode: Recreate AW<br/>JDBC: Global_11r21<br/>Pre-compute: Enabled]:::calc
+    CUBE -.-> EXP

@@ -2,7 +2,7 @@
 
 [English](README.md) | [Русский](README.ru.md)
 
-**Опубликованная документация:** https://ekatmoz88-alt.github.io/global11-demo-data-platform/
+**Опубликованная документация:** [Документация Global11](https://ekatmoz88-alt.github.io/global11-demo-data-platform/)
 
 Документация и воспроизводимый анализ учебного проекта **Global11_demo Data Modeler**, основанного на демонстрационной схеме Oracle Global 11g.
 

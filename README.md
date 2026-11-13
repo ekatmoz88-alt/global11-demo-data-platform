@@ -2,7 +2,7 @@
 
 [English](README.md) | [Русский](README.ru.md)
 
-**Published documentation:** https://ekatmoz88-alt.github.io/global11-demo-data-platform/
+**Published documentation:** [Global11 documentation](https://ekatmoz88-alt.github.io/global11-demo-data-platform/)
 
 Documentation and reproducible analysis of the **Global11_demo Data Modeler** learning project based on the Oracle Global 11g sample schema.
 
@@ -64,7 +64,6 @@ Execution in a specific Oracle installation is not claimed. Before running scrip
 ## Project boundary
 
 Deshifrator, ModuleMobile, ModuleStationary, PassportPaint, SQLite, and their C# source excerpts are documented separately in the [Deshifrator documentation repository](https://github.com/ekatmoz88-alt/deshifrator-docs). No technical relationship between that application suite and the Oracle GLOBAL11 model is asserted.
-
 
 ## Tags
 

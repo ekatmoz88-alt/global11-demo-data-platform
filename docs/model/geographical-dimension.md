@@ -1,10 +1,11 @@
 # Географическое измерение — иерархия и уровни
-*Geographical Dimension — Hierarchy and Levels*
+
+Geographical Dimension — Hierarchy and Levels
 
 > **Статус: Draft / Черновик.** Проектное описание; не подтверждено импортом схемы в Oracle Data Modeler.
 
 | Параметр | Значение |
-|---|---|
+| --- | --- |
 | Проект | Global11_demo |
 | Измерение | `GEOGRAPHY` |
 | Иерархия | `GEO_ROLLUP` |
@@ -28,7 +29,7 @@
 Предполагаемый источник — `GLOBAL.CUST_ACCOUNT`. Согласно описанию демонстрационных изменений, таблица создаётся объединением `GLOBAL.CUSTOMER_DIM` и `GLOBAL.ACCOUNT` по `ACCOUNT_ID`.
 
 | Уровень | Ключ уровня (предварительно) | Источник |
-|---|---|---|
+| --- | --- | --- |
 | Страна | `COUNTRY` | `CUST_ACCOUNT.COUNTRY` |
 | Штат / провинция | `(STATE_PROV, COUNTRY)` | `CUST_ACCOUNT.STATE_PROV`, `CUST_ACCOUNT.COUNTRY` |
 | Город | `(CITY, STATE_PROV, COUNTRY)` | `CUST_ACCOUNT.CITY`, `STATE_PROV`, `COUNTRY` |
@@ -65,7 +66,7 @@ GEOGRAPHY
 ## 4. Ключи и связи между уровнями
 
 | Связь в roll-up | Ключ дочернего уровня | Ключ родительского уровня |
-|---|---|---|
+| --- | --- | --- |
 | State → Country | `(STATE_PROV, COUNTRY)` | `COUNTRY` |
 | City → State | `(CITY, STATE_PROV, COUNTRY)` | `(STATE_PROV, COUNTRY)` |
 | Account → City | `ACCOUNT_ID` + подтверждённая географическая привязка | `(CITY, STATE_PROV, COUNTRY)` |
@@ -86,7 +87,7 @@ GEOGRAPHY
 ## 6. Связь с фактовой таблицей и кубом
 
 | Параметр | Предварительное значение |
-|---|---|
+| --- | --- |
 | Fact entity | `GLOBAL.UNITS_FACT` |
 | Dimension | `GEOGRAPHY` |
 | Присоединяемый уровень | `SHIP_TO` |

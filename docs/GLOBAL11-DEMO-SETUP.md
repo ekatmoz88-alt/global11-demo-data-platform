@@ -5,8 +5,9 @@
 Этот документ фиксирует, как подготавливается дизайн Global11_demo Data Modeler. Базой служит Oracle Global 11g sample schema, установленная в схему `GLOBAL`.
 
 Исходная инструкция проекта:
-- Global 11g README: http://www.oracle.com/technetwork/database/options/olap/global-11g-readme-082667.html
-- Архив схемы: http://www.oracle.com/technetwork/database/enterprise-edition/downloads/global-11g-schema-1-128202.zip
+
+- [Global 11g README](http://www.oracle.com/technetwork/database/options/olap/global-11g-readme-082667.html)
+- [Архив схемы](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/global-11g-schema-1-128202.zip)
 
 ## 2. Базовая установка
 
@@ -16,6 +17,7 @@
 4. Проверить наличие исходных таблиц и доступ пользователя `GLOBAL`.
 
 Архив содержит, в частности:
+
 - `global_11g_source.dmp`
 - `global_11g_install.sql`
 - `global_11g_remove.sql`
@@ -39,7 +41,7 @@ GRANT CREATE VIEW,
 TO GLOBAL;
 ```
 
-Скрипт: [sql/01_oracle12c_privileges.sql](../sql/01_oracle12c_privileges.sql).
+Скрипт: [sql/01_oracle12c_privileges.sql](https://github.com/ekatmoz88-alt/global11-demo-data-platform/blob/main/sql/01_oracle12c_privileges.sql).
 
 Эти права не заменяют базовые привилегии, выдаваемые штатным установщиком Oracle Global 11g.
 
@@ -67,10 +69,11 @@ UPDATE GLOBAL.UNITS_FACT SET DELIVERY_MONTH_ID = MONTH_ID;
 Создаётся физическая таблица `GLOBAL.CUST_ACCOUNT` через CTAS. Источники — `GLOBAL.CUSTOMER_DIM` и `GLOBAL.ACCOUNT`, соединение выполняется по `ACCOUNT_ID`.
 
 Поля назначения:
+
 - из `CUSTOMER_DIM`: `SHIP_TO_ID`, `SHIP_TO_DSC`, `SHIP_TO_DSC_FRENCH`, `SHIP_TO_DSC_DUTCH`;
 - из `ACCOUNT`: `ACCOUNT_ID`, имя/фамилия, адресные и контактные атрибуты.
 
-Полный SQL находится в [02_global11_demo_schema_changes.sql](../sql/02_global11_demo_schema_changes.sql).
+Полный SQL находится в [02_global11_demo_schema_changes.sql](https://github.com/ekatmoz88-alt/global11-demo-data-platform/blob/main/sql/02_global11_demo_schema_changes.sql).
 
 CTAS создаёт таблицу на момент выполнения запроса. Это не view и не автоматически синхронизируемая копия исходных таблиц. Ограничения и индексы исходных таблиц автоматически не следует считать перенесёнными.
 

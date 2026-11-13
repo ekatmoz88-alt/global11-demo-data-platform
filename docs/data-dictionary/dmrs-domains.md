@@ -26,7 +26,7 @@ The diagram uses the markers `P`, `F`, and `*`. This specification preserves tho
 ## 3. Column specification
 
 | # | Column | Data type | Source marker | Source-grounded description |
-|---:|---|---|---|---|
+| ---: | --- | --- | --- | --- |
 | 1 | `Domain_ID` | `VARCHAR2(70)` | P, * | Domain identifier; marked as the primary-key column |
 | 2 | `Domain_Name` | `VARCHAR2(256)` | * | Domain name |
 | 3 | `OVID` | `VARCHAR2(36)` | * | Attribute named OVID; detailed semantics require confirmation |
@@ -52,7 +52,7 @@ Column spelling, capitalization, and data types are reproduced from the diagram.
 ### 4.1 Primary key
 
 | Constraint | Column |
-|---|---|
+| --- | --- |
 | `DMRS_DOMAINS_PK` | `Domain_ID` |
 
 The diagram displays `DMRS_DOMAINS_PK (Domain_ID)` and marks `Domain_ID` with `P`.
@@ -62,7 +62,7 @@ The physical constraint definition and enforcement state have not yet been check
 ## 5. Index inventory
 
 | Index name | Indexed column(s) |
-|---|---|
+| --- | --- |
 | `DOMAINS_PK_IDX` | `Domain_ID` |
 | `DOMAINS_FK_IDX` | `Design_OVID` |
 | `DOMAINS_FK_IDXV1` | `Logical_Type_OVID` |
@@ -74,7 +74,7 @@ These objects are recorded as indexes because that is how they are identified in
 The diagram marks `Design_OVID` and `Logical_Type_OVID` with `F`. The repository model also contains the related table names `DMRS_DESIGNS` and `DMRS_LOGICAL_TYPES`.
 
 | Source column | Candidate target | Diagram evidence | Status |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `Design_OVID` | `DMRS_DESIGNS.Design_OVID` | `F` marker; design-related metadata table appears in the source model | Candidate only; verify constraint and target column |
 | `Logical_Type_OVID` | `DMRS_LOGICAL_TYPES.OVID` | `F` marker; logical-type metadata table appears in the source model | Candidate only; verify constraint and target column |
 
@@ -118,7 +118,7 @@ Their names suggest separate representations of domain-associated values, value 
 ## 10. Evidence and status register
 
 | Item | Evidence status |
-|---|---|
+| --- | --- |
 | 17 column names and displayed data types | Confirmed from source diagram |
 | `DMRS_DOMAINS_PK` and its displayed column | Confirmed from source diagram |
 | Three index names and displayed columns | Confirmed from source diagram |

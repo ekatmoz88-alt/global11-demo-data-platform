@@ -5,7 +5,7 @@
 Согласно README и install package Oracle Global 11g, исходная схема включает следующие таблицы:
 
 | Таблица | Роль в модели |
-|---|---|
+| --- | --- |
 | `CHANNEL_DIM` | Измерение канала |
 | `CUSTOMER_DIM` | Измерение клиента / ship-to |
 | `PRODUCT_DIM` | Измерение продукта |
@@ -29,6 +29,7 @@
 ### UNITS_FACT → TIME_DIM: две роли времени
 
 В `UNITS_FACT` добавляются:
+
 - `SHIP_MONTH_ID`
 - `DELIVERY_MONTH_ID`
 
@@ -37,7 +38,7 @@
 ## 3. CUST_ACCOUNT: состав атрибутов
 
 | Источник | Столбцы |
-|---|---|
+| --- | --- |
 | CUSTOMER_DIM | SHIP_TO_ID, SHIP_TO_DSC, SHIP_TO_DSC_FRENCH, SHIP_TO_DSC_DUTCH |
 | ACCOUNT | ACCOUNT_ID, FIRSTNAME, LASTNAME, ADDRESS, ADDRESS2, CITY, STATE_PROV, COUNTRY, ZIP_PC, PHONE, FAX, EMAIL |
 
@@ -60,6 +61,7 @@ erDiagram
 ## 5. Границы достоверности
 
 Подтверждено проектной инструкцией:
+
 - два новых столбца и их тип;
 - инициализация обоих столбцов из `MONTH_ID`;
 - точный список выбранных столбцов для `CUST_ACCOUNT`;
@@ -67,6 +69,7 @@ erDiagram
 - запрет на создание Analytic Workspace.
 
 Не следует считать подтверждённым без проверки:
+
 - уникальность `ACCOUNT.ACCOUNT_ID` и `CUSTOMER_DIM.ACCOUNT_ID`;
 - PK/FK constraints и фактические cardinalities;
 - независимые даты отгрузки и доставки;

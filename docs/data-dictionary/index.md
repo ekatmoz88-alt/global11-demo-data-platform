@@ -9,6 +9,7 @@
 This documentation area describes DMRS metadata structures represented in the supplied Oracle SQL Developer Data Modeler artifacts.
 
 Initial scope:
+
 - Domain definitions
 - Logical data types
 - Logical-to-native type mappings
@@ -22,7 +23,7 @@ The documentation is limited to evidence available from model diagrams, XML expo
 ## 2. Documentation inventory
 
 | Artifact | Purpose | Status |
-|---|---|---|
+| --- | --- | --- |
 | [DMRS_DOMAINS](dmrs-domains.md) | Domain metadata table specification | Draft |
 | DMRS_LOGICAL_TYPES | Logical type metadata specification | Planned |
 | DMRS_LOGICAL_TO_NATIVE | Logical-to-native mapping specification | Planned |
@@ -35,7 +36,7 @@ The documentation is limited to evidence available from model diagrams, XML expo
 Every statement must be traceable to an identifiable source.
 
 | Evidence class | Meaning |
-|---|---|
+| --- | --- |
 | Confirmed | Directly visible in a supplied diagram, XML artifact, DDL, or catalog result |
 | Inferred | Reasoned interpretation not independently verified |
 | Not verified | Available evidence is insufficient for a reliable statement |

@@ -6,7 +6,8 @@
 --   * This script is a one-time change set; it is NOT idempotent.
 --   * Verify that the columns and CUST_ACCOUNT table do not already exist.
 --   * The source instructions initialize both role keys from MONTH_ID.
---     This is a baseline demonstration, not independent shipment/delivery dates.
+--     This project change set initializes both role keys from MONTH_ID;
+--     it does not reconstruct independent shipment/delivery event dates.
 --   * CUST_ACCOUNT is a physical CTAS table, not a view.
 
 -- 1. Add role-playing time keys to UNITS_FACT.

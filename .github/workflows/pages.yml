@@ -7,6 +7,7 @@ on:
       - "mkdocs.yml"
       - "README.md"
       - "docs/**"
+      - "scripts/**"
       - "data-dictionary/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
@@ -37,6 +38,8 @@ jobs:
           python-version: "3.12"
       - name: Install MkDocs Material
         run: pip install mkdocs-material
+      - name: Validate DMRS documentation
+        run: python scripts/validate_dmrs_docs.py
       - name: Build documentation
         run: mkdocs build --site-dir _site
       - name: Include data dictionary

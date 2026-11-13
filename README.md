@@ -4,9 +4,9 @@
 
 **Published documentation:** [Global11 documentation](https://ekatmoz88-alt.github.io/global11-demo-data-platform/)
 
-Documentation and reproducible analysis of the **Global11_demo Data Modeler** learning project based on the Oracle Global 11g sample schema.
+Technical documentation for the real **Global11** data platform, deployed and operated on an office server using Oracle Global 11g. The repository documents its relational model, project-specific schema changes, data dictionary, SQL materials, and OLAP design work.
 
-This repository is dedicated to the Oracle relational model, its documented demonstration changes, the data dictionary, and conceptual OLAP artefacts. It does not document the separate Deshifrator WPF application suite.
+This repository is dedicated to the Oracle relational model, the schema changes documented for the project, the data dictionary, and OLAP design artefacts. It does not document the separate Deshifrator WPF application suite.
 
 ## Scope
 
@@ -34,7 +34,7 @@ This repository is dedicated to the Oracle relational model, its documented demo
 4. Apply [02_global11_demo_schema_changes.sql](sql/02_global11_demo_schema_changes.sql) once.
 5. Do not run `global_11g_create_cubes.sql` for this scenario: the project instructions explicitly exclude Analytic Workspace creation.
 
-## Confirmed demonstration changes
+## Documented schema changes
 
 ### Role-playing time keys
 
@@ -51,9 +51,9 @@ A physical table is created using `CREATE TABLE ... AS SELECT`, joining `CUSTOME
 
 ## Evidence and limitations
 
-The primary evidence is the supplied project instruction and the Oracle Global 11g archive (README and SQL scripts). The documentation distinguishes source facts, archive inventory, conceptual OLAP patterns, and items requiring verification against a live database.
+Global11 was deployed and operated on an office server. The documentation is based on the real project environment, the Oracle Global 11g package, project instructions, SQL scripts, and Data Modeler materials. The historical deployment is a project fact; the current state of that server and database was not rechecked while preparing this public portfolio version.
 
-Execution in a specific Oracle installation is not claimed. Before running scripts, verify the database version, object availability, privileges, and whether the scripts have already been applied.
+The documentation distinguishes the deployed relational platform from OLAP design artefacts that were not part of the deployed scope. Before reapplying a schema-change script in any environment, verify the database version, object availability, privileges, and whether the change has already been applied.
 
 - The schema-change scripts are intended for one-time application and are not idempotent.
 - Both role-playing columns initially receive the same `MONTH_ID`.

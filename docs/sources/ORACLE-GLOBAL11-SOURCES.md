@@ -68,3 +68,11 @@ TO GLOBAL;
 ## Важное проектное ограничение
 
 Несмотря на наличие `global_11g_create_cubes.sql` и XML templates, проектная инструкция говорит: **Do not create analytic workspace.** Поэтому этот сценарий не является частью установки Global11_demo, описанной в данном репозитории.
+
+
+## Data Modeler dimensional-design references
+
+- [Philip Stoyanov — Dimensional Modeling in Oracle SQL Developer (Oracle slide deck, 2013)](https://www.slideshare.net/slideshow/dimensional-modeling-in-oracle-sql-developer/29966332). The title slide identifies Philip Stoyanov as presenter; the deck covers dimensions, levels, level-based / value-based / ragged hierarchies, dimension usage, role-playing dimensions, cubes, measures, pre-computation, and export to Oracle Analytic Workspace.
+- [Jeff Smith — Dimensional Modeling in Oracle SQL Developer Data Modeler (13 January 2014)](https://www.thatjeffsmith.com/archive/2014/01/dimensional-modeling-in-oracle-sql-developer-data-modeler/). The article identifies the `global11_demo.dmd` sample and its accompanying PDF build description in the Data Modeler sample installation.
+
+The project history records that the portfolio author worked with Philip Stoyanov on deployment of the Global11 environment. The public slide deck is cited as a technical reference and is not presented as the portfolio author's work.

@@ -1,10 +1,12 @@
-# GLOBAL11 Demo Data Platform
+# Oracle Global11 — Data Model & OLAP Architecture
 
-Документация и анализ демонстрационной схемы Oracle Global 11g.
+Документация реальной платформы Oracle Global11 и связанного размерного дизайна Data Modeler. `Global11_demo` — исходное имя дизайна Data Modeler, а не статус проекта.
 
 ## Документация
 
 - [Подготовка среды и изменения схемы](GLOBAL11-DEMO-SETUP.md)
+- [Проектирование в Oracle SQL Developer Data Modeler — EN](GLOBAL11-DATA-MODELER-DESIGN.md)
+- [Проектирование в Oracle SQL Developer Data Modeler — RU](GLOBAL11-DATA-MODELER-DESIGN.ru.md)
 - [Документация OLAP](GLOBAL11-OLAP-DOCUMENTATION.md)
 - [Финальная спецификация Global11_demo / Cube_1111](model/CUBE-1111-FINAL-SPECIFICATION.md) — **Documentation Complete; Technical Validation Pending**.
 - [Финальная OLAP-схема Cube_1111](model/olap-diagram.mmd)

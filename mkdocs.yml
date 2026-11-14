@@ -10,6 +10,7 @@ theme:
 nav:
   - Главная: index.md
   - Подготовка и изменения схемы: GLOBAL11-DEMO-SETUP.md
+  - Data Modeler — история и методика: GLOBAL11-DATA-MODELER-DESIGN.ru.md
   - OLAP: GLOBAL11-OLAP-DOCUMENTATION.md
   - Финальная спецификация Cube_1111: model/CUBE-1111-FINAL-SPECIFICATION.md
   - DMRS Repository Metadata:

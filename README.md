@@ -4,7 +4,7 @@
 
 **Published documentation:** [Global11 documentation](https://ekatmoz88-alt.github.io/global11-demo-data-platform/)
 
-Technical documentation for the real **Global11** data platform, deployed and operated on an office server using Oracle Global 11g. The deployment work was carried out in collaboration with Philip Stoyanov. The repository documents the relational model, project-specific schema changes, data dictionary, SQL materials, and the Oracle SQL Developer Data Modeler dimensional-design workflow.
+Technical documentation for the real **Global11** data platform, deployed and operated on an office server using Oracle Global 11g. The repository documents the relational model, project-specific schema changes, data dictionary, SQL materials, and the Oracle SQL Developer Data Modeler dimensional-design workflow.
 
 This repository is dedicated to the Oracle relational model, the schema changes documented for the project, the data dictionary, and OLAP design artefacts. It does not document the separate Deshifrator WPF application suite.
 

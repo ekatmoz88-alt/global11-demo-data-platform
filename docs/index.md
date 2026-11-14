@@ -1,6 +1,6 @@
-# GLOBAL11 Demo Data Platform
+# Oracle Global11 — Data Model & OLAP Architecture
 
-Документация и анализ демонстрационной схемы Oracle Global 11g.
+Документация реальной платформы Oracle Global11 и связанного размерного дизайна Data Modeler. `Global11_demo` — исходное имя дизайна Data Modeler, а не статус проекта.
 
 ## Документация
 

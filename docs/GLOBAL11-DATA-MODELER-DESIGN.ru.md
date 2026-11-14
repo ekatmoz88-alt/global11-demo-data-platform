@@ -2,7 +2,7 @@
 
 ## Контекст проекта
 
-Система Global11 была развёрнута и эксплуатировалась на офисном сервере под Oracle Global 11g. Работы по развёртыванию выполнялись **совместно с Philip Stoyanov**. В материалах проекта также присутствуют дизайн `Global11_demo` для Oracle SQL Developer Data Modeler и описание последовательности построения его размерной модели.
+Система Global11 была развёрнута и эксплуатировалась на офисном сервере под Oracle Global 11g. В материалах проекта также присутствуют дизайн `Global11_demo` для Oracle SQL Developer Data Modeler и описание последовательности построения его размерной модели.
 
 Публичные источники подтверждают технический контекст примера Data Modeler. В статье от 13 января 2014 года Jeff Smith указывает, что в установку SQL Developer Data Modeler входил пример `global11_demo.dmd` и PDF с описанием построения модели. Связанная презентация Oracle 2013 года называется *Dimensional Modeling in Oracle SQL Developer Data Modeler*; на титульном слайде указан Philip Stoyanov.
 
@@ -89,7 +89,6 @@ TO GLOBAL;
 
 **Oracle Global11 — моделирование данных и OLAP-архитектура**
 
-- Участвовала в развёртывании среды Oracle Global11 совместно с Philip Stoyanov.
 - Работала с контекстом размерного проектирования в Oracle SQL Developer Data Modeler: преобразование relational-to-logical, измерения, уровни, roll-up и ragged hierarchies, dimension usage, role-playing time dimensions, кубы и меры.
 - Документировала подготовку схемы Oracle Global 11g, проектные изменения SQL, структуры данных и процесс экспорта Data Modeler в Oracle OLAP.
 - Разделила исторически развёрнутую реляционную платформу, размерный дизайн и OLAP-артефакты, runtime-развёртывание которых пока не подтверждено для портфолио.

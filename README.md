@@ -1,4 +1,4 @@
-# GLOBAL11 Demo Data Platform
+# Oracle Global11 — Data Model & OLAP Architecture
 
 [English](README.md) | [Русский](README.ru.md)
 

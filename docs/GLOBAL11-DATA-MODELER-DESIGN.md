@@ -2,7 +2,7 @@
 
 ## Project context
 
-Global11 was deployed and operated on an office server using Oracle Global 11g. The deployment work was carried out in collaboration with **Philip Stoyanov**. The project materials also include the `Global11_demo` design for Oracle SQL Developer Data Modeler and a build procedure describing how its dimensional model was assembled.
+Global11 was deployed and operated on an office server using Oracle Global 11g. The project materials also include the `Global11_demo` design for Oracle SQL Developer Data Modeler and a build procedure describing how its dimensional model was assembled.
 
 The public references establish the technical context of the Data Modeler sample: Jeff Smith's 13 January 2014 article explains that the SQL Developer Data Modeler installation included a `global11_demo.dmd` sample and a PDF describing how the model was built. The related 2013 Oracle slide deck is titled *Dimensional Modeling in Oracle SQL Developer Data Modeler* and names Philip Stoyanov as its presenter.
 
@@ -89,7 +89,6 @@ The broader [OLAP documentation](GLOBAL11-OLAP-DOCUMENTATION.md) also distinguis
 
 **Oracle Global11 — Data Modeling & OLAP Architecture**
 
-- Participated in deployment of the Oracle Global11 environment in collaboration with Philip Stoyanov.
 - Worked with the Oracle SQL Developer Data Modeler dimensional-design context: relational-to-logical engineering, dimensions, levels, roll-up and ragged hierarchies, dimension usage, role-playing time dimensions, cubes, and measures.
 - Documented Oracle Global 11g schema preparation, project-specific SQL changes, data structures, and the Data Modeler-to-Oracle-OLAP export workflow.
 - Preserved the distinction between the historically deployed relational platform, the dimensional design, and OLAP artefacts whose runtime deployment has not been independently verified for this portfolio.
@@ -98,7 +97,6 @@ The broader [OLAP documentation](GLOBAL11-OLAP-DOCUMENTATION.md) also distinguis
 
 ## Evidence and attribution
 
-- The collaboration with Philip Stoyanov is part of the project history supplied by the portfolio author.
 - The Oracle slide deck is attributed to Philip Stoyanov; it is cited as a technical reference, not claimed as the author's work.
 - Jeff Smith's article identifies the `global11_demo.dmd` sample and its accompanying build-description PDF in the Data Modeler sample installation.
 - The design metadata and project build notes are retained as separate evidence from a live database or Analytic Workspace validation.

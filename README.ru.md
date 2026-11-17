@@ -12,6 +12,7 @@
 
 ## Состав
 
+- [Аудит Global11 и пять эталонов Oracle](docs/GLOBAL11-REFERENCE-BENCHMARK-AND-AUDIT.md) — архитектурные составляющие, результаты аудита, расхождения и приоритетный план исправлений.
 - [Документация OLAP](docs/GLOBAL11-OLAP-DOCUMENTATION.md).
 - [Финальная спецификация Global11_demo / Cube_1111](docs/model/CUBE-1111-FINAL-SPECIFICATION.md) — **Documentation Complete; Technical Validation Pending**.
 - [Финальная OLAP-схема Cube_1111](docs/model/olap-diagram.mmd).

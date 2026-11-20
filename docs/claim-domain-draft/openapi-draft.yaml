@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: GLOBAL11 Claim API — schema draft
+  version: 0.1.0
+  description: |
+    Draft reusable schemas derived from the supplied data-model excerpt.
+    No HTTP paths or methods are declared because the source material did not
+    specify the route, HTTP method, authentication scheme, or complete response
+    contract. This file is not an implementation contract.
+paths: {}
+components:
+  schemas:
+    ClaimCreate:
+      type: object
+      additionalProperties: false
+      required:
+        - person_id
+        - dep_claim_id
+        - claim_number
+      properties:
+        person_id:
+          type: integer
+          examples: [1250]
+        dep_claim_id:
+          type: integer
+          examples: [8]
+        claim_number:
+          type: string
+          examples: ["CLM-2026-00891"]
+    ClaimResponse:
+      type: object
+      properties:
+        appln_id:
+          type: integer
+          examples: [55432]
+        person_id:
+          type: integer
+          examples: [1250]
+        dep_claim_id:
+          type: integer
+          examples: [8]
+        claim_number:
+          type: string
+          examples: ["CLM-2026-00891"]
+        created_date:
+          type: string
+          format: date-time
+          examples: ["2026-11-10T22:15:00Z"]
+    ChecklistItemUpdate:
+      type: object
+      required:
+        - is_checked
+        - emp_id
+      properties:
+        is_checked:
+          description: The supplied excerpt models this field as 0 or 1. Confirm the actual API representation before changing it to boolean.
+          type: integer
+          enum: [0, 1]
+          examples: [1]
+        emp_id:
+          type: integer
+          examples: [45]
+        document_id:
+          type: integer
+          examples: [1024]
+  parameters:
+    ClaimId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    ChecklistItemId:
+      name: itemId
+      in: path
+      required: true
+      schema:
+        type: integer

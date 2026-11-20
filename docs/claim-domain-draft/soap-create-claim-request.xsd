@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="urn:global11:claim"
+    xmlns:sch="urn:global11:claim"
+    elementFormDefault="qualified">
+
+  <!--
+    DRAFT FRAGMENT ONLY.
+    The namespace is a provisional placeholder, not a verified service namespace.
+    This XSD describes only the request payload fields supplied in the example.
+    Response, SOAP Fault, binding, service address and WSDL operation are not known.
+  -->
+  <xs:element name="CreateClaimRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="PersonId" type="xs:long"/>
+        <xs:element name="DeptClaimId" type="xs:long"/>
+        <xs:element name="ClaimNumber" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -16,6 +16,10 @@ nav:
   - DMRS Repository Metadata:
       - Overview: data-dictionary/index.md
       - DMRS_DOMAINS: data-dictionary/dmrs-domains.md
+      - DMRS analysis: dmrs-global11-analysis.md
+      - Metadata and hierarchy UUID catalogue: dmrs-metadata-catalog.md
+  - Дополнительные проектные материалы:
+      - Claim-domain drafts: claim-domain-draft/README.md
   - Реляционная модель:
       - Обзор GLOBAL: model/GLOBAL11-RELATIONAL-MODEL.md
       - Географическое измерение GEO_ROLLUP: model/geographical-dimension.md

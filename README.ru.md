@@ -39,3 +39,11 @@
 ## Теги
 
 `oracle` · `global11` · `data-modeling` · `sql` · `data-dictionary` · `database-documentation`
+
+
+## Исходные документы
+
+- [Global11_demo.pdf — исходный документ](https://github.com/ekatmoz88-alt/technical-docs-library/blob/main/02_ORACLE/Global11_demo.pdf)
+- [Global11demo schemes.pdf — исходные схемы](https://github.com/ekatmoz88-alt/technical-docs-library/blob/main/02_ORACLE/Global11demo%20schemes.pdf)
+- [Детальная DMRS-диаграмма иерархий](docs/model/olap-diagram-dmrs-source.mmd)
+- [Каталог UUID иерархий DMRS](docs/dmrs-metadata-catalog.md)

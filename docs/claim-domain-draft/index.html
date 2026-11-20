@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Global11 Oracle 11g relational design drafts and separately extracted Oracle OLAP Cube_1111 metadata.">
+  <title>Global11 · Oracle 11g Data Model &amp; OLAP Metadata</title>
+  <style>
+    :root{color-scheme:light dark;--bg:#101820;--panel:#182632;--text:#edf4f8;--muted:#afc0cb;--line:#344a59;--link:#8bc7ff;--warn:#f4c46a}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif}
+    main{max-width:980px;margin:0 auto;padding:48px 24px 72px}h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.12;margin:.3em 0}h2{margin-top:2.2em}p,li{color:var(--muted)}a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
+    .eyebrow{color:var(--link);font-size:.78rem;letter-spacing:.12em;font-weight:700}.status{border:1px solid var(--warn);border-radius:12px;padding:14px 16px;color:var(--warn);background:#392f1d33;margin:24px 0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0}.card{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:20px}.card h3{margin:0 0 8px}.card p{margin:0 0 12px}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-size:.78rem;color:var(--muted)}
+    table{width:100%;border-collapse:collapse;font-size:.92rem;margin:18px 0}th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}th{color:var(--text);background:#263946}td{color:var(--muted)}
+    code{background:#263946;padding:2px 5px;border-radius:4px}footer{border-top:1px solid var(--line);margin-top:48px;padding-top:20px;color:var(--muted);font-size:.9rem}
+  </style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">ORACLE 11G · RELATIONAL DESIGN · OLAP METADATA</p>
+  <h1>Global11 — Data Model &amp; OLAP Review</h1>
+  <p>This case groups related documentation for navigation. It contains two distinct evidence tracks: a relational claim-domain design with draft SQL/API artifacts, and extracted metadata from the Oracle OLAP analytic workspace <code>Cube_1111</code>.</p>
+  <div class="status"><strong>Evidence status:</strong> Design documents and extracted metadata are not proof of a deployed production system. The relational/API materials remain drafts. The OLAP facts below describe inspected metadata only; they do not establish query performance, successful aggregation execution, refresh behavior or production deployment.</div>
+
+  <h2>01 · Relational design and integration drafts</h2>
+  <p>The relational design materials describe a candidate data model, database operations and integration contracts. Treat SQL as design notes, OpenAPI as a draft, and the SOAP XSD as a request-schema fragment. They are not executable migrations or complete service contracts.</p>
+  <section class="grid" aria-label="Relational design documentation">
+    <article class="card"><span class="tag">DATABASE</span><h3>Database architecture review</h3><p>Relational entities, relationships, indexing and materialized-view considerations, with unresolved design decisions identified.</p><a href="database-architecture-review.md">Open database review ↗</a></article>
+    <article class="card"><span class="tag">OPERATIONS</span><h3>Administrator guide</h3><p>Draft operational guidance for partition checks, archiving, materialized-view refresh and statistics collection.</p><a href="administrator-guide.md">Open administrator guide ↗</a></article>
+    <article class="card"><span class="tag">REST · OPENAPI 3.1</span><h3>REST API draft</h3><p>Candidate schemas and model mapping. HTTP routes and service behavior are not asserted without implementation evidence.</p><a href="rest-api-specification.md">REST specification ↗</a><br><a href="openapi-draft.yaml">Open OpenAPI YAML ↗</a></article>
+    <article class="card"><span class="tag">SOAP · XML · XSD</span><h3>SOAP CreateClaim draft</h3><p>Integration notes and a request-schema fragment. A complete WSDL requires confirmed namespaces, bindings, messages, endpoint and response contract.</p><a href="soap-integration-specification.md">SOAP specification ↗</a><br><a href="soap-create-claim-request.xsd">Open XSD fragment ↗</a></article>
+    <article class="card"><span class="tag">SQL</span><h3>SQL design notes</h3><p>Candidate SQL and review notes; not a migration package or execution record.</p><a href="sql-design-notes.sql">Open SQL notes ↗</a></article>
+  </section>
+
+  <h2>02 · Extracted Oracle OLAP metadata: Cube_1111</h2>
+  <p>The following values were transcribed from the inspected Oracle Data Modeler / OLAP metadata artifacts. They are metadata observations, not runtime test results.</p>
+  <table>
+    <tbody>
+      <tr><th>Model type</th><td>Dimensional / Multidimensional</td></tr>
+      <tr><th>Primary fact entity</th><td><code>UNITS FACT</code></td></tr>
+      <tr><th>Other fact reference</th><td><code>PRICE FACT</code> appears in raw logs; active cube membership was not confirmed.</td></tr>
+      <tr><th>Time dimension roles</th><td><code>Order_Month</code>, <code>Shipped_month</code>, <code>Delivery_month</code></td></tr>
+      <tr><th>Measures</th><td><code>MSR_1</code>, <code>MSR_2</code>, <code>CALC_MSR1</code> (calculation expression recorded as <code>RANKOVER(H)</code>)</td></tr>
+      <tr><th>Default aggregation</th><td><code>SUM</code></td></tr>
+      <tr><th>Aggregation target</th><td><code>AGGREGATE CUBE_1111</code></td></tr>
+      <tr><th>Sparsity</th><td>Inspected metadata does not mark the cube as sparse.</td></tr>
+    </tbody>
+  </table>
+  <p>These observations do not demonstrate that an aggregation was executed successfully, that the cube was refreshed, or that any performance characteristic was measured. The connection label <code>Global_11r21</code> is metadata context, not evidence of a live or deployed environment.</p>
+
+  <h2>03 · Version and implementation constraints</h2>
+  <ul>
+    <li>Oracle 11g does not support identity columns; key generation must use a version-compatible approach such as sequences and triggers or application-side generation.</li>
+    <li>Bitmap indexes should not be prescribed automatically for frequently updated OLTP tables.</li>
+    <li>Interval partitioning does not itself archive or automatically remove old data.</li>
+    <li><code>REFRESH FAST ON COMMIT</code> is not confirmed; eligibility must be checked against the actual materialized-view definition, for example with <code>DBMS_MVIEW.EXPLAIN_MVIEW</code>.</li>
+    <li>Reports must distinguish claim-level grain from claim-detail grain when a claim can contain multiple loss details.</li>
+  </ul>
+
+  <h2>Related documentation</h2>
+  <p><a href="README.md">Global11 evidence index ↗</a> · <a href="https://github.com/ekatmoz88-alt/global11-demo-data-platform">Global11 source repository ↗</a></p>
+  <footer>
+    <a href="https://github.com/ekatmoz88-alt/global11-demo-data-platform">← Portfolio dashboard repository</a>
+  </footer>
+</main>
+</body>
+</html>

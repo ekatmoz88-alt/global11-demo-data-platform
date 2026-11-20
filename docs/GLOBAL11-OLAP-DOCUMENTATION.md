@@ -246,3 +246,14 @@ The consolidated final design summary, submitted DDL, SQL validation query, requ
 ## Validation Status
 
 The document describes the real Global11 relational platform and separates it from the proposed OLAP layer. The XML, PL/SQL, cube, and analytical-query fragments in the OLAP sections are design artefacts; they do not assert that an Analytic Workspace or cube was created. The relational system's historical deployment on an office server is distinct from the implementation status of these OLAP artefacts. Relationship cardinalities, measure additivity, and business event-date mappings must follow the authoritative source model and business rules.
+
+
+## Source-specific validation caveat for relational and OLAP design artefacts
+
+An earlier version of the design notes explicitly classified the relational DDL fragments as illustrative design artefacts that had not been executed or validated against a live database instance. The current documentation preserves the real historical Global11 relational platform as a separate project fact, but it does not use that fact to claim that every illustrative DDL, XML, PL/SQL or analytical SQL fragment was executed.
+
+The role-playing time-key example initializes both SHIP_MONTH_ID and DELIVERY_MONTH_ID from MONTH_ID. These columns therefore contain identical baseline values in the documented example; they do not reconstruct independently sourced shipment and delivery event dates. Production interpretation requires the corresponding business event dates and authoritative rules.
+
+The model diagram presents logical relationships. Foreign-key constraints, physical cardinalities, measure additivity and business event-date mappings require validation against the original database schema, source DDL, database metadata and business rules. No live execution or validation of the conceptual OLAP artefacts is claimed here.
+
+For the DMRS metadata evidence and extraction procedure, see the [DMRS Global11 analysis](dmrs-global11-analysis.md), [metadata catalogue](dmrs-metadata-catalog.md) and [read-only extraction script](../sql/01_extract_global11_core.sql).

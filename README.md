@@ -74,3 +74,11 @@ Deshifrator, ModuleMobile, ModuleStationary, PassportPaint, SQLite, and their C#
 ## Tags
 
 `oracle` · `global11` · `data-modeling` · `sql` · `data-dictionary` · `database-documentation`
+
+
+## Original source documents
+
+- [Global11_demo.pdf — source document](https://github.com/ekatmoz88-alt/technical-docs-library/blob/main/02_ORACLE/Global11_demo.pdf)
+- [Global11demo schemes.pdf — source diagrams](https://github.com/ekatmoz88-alt/technical-docs-library/blob/main/02_ORACLE/Global11demo%20schemes.pdf)
+- [Detailed DMRS hierarchy diagram](docs/model/olap-diagram-dmrs-source.mmd)
+- [DMRS hierarchy UUID catalogue](docs/dmrs-metadata-catalog.md)

@@ -15,6 +15,7 @@ This repository is dedicated to the Oracle relational model, the schema changes 
 - Role-playing time-key demonstration in `GLOBAL.UNITS_FACT`.
 - CTAS creation of `CUST_ACCOUNT`.
 - Conceptual OLAP model inventory and diagrams.
+- Supplementary claim-domain design drafts, kept separate from the extracted `Cube_1111` metadata and deployed relational model.
 
 ## Repository structure
 
@@ -23,6 +24,7 @@ This repository is dedicated to the Oracle relational model, the schema changes 
 - `docs/GLOBAL11-DATA-MODELER-DESIGN.md` — project history, dimensional-model construction workflow, role-playing dimensions, hierarchies, measures, and Oracle AW export behavior.
 - `docs/model/GLOBAL11-RELATIONAL-MODEL.md` — relational tables, relationships, and interpretation boundaries.
 - `docs/sources/ORACLE-GLOBAL11-SOURCES.md` — Oracle package inventory and source references.
+- `docs/claim-domain-draft/` — separate, explicitly unverified claim-domain design materials: database architecture review, draft administrator guide, REST/OpenAPI and SOAP/XSD contract fragments, and SQL notes. These drafts are not treated as proof of deployed endpoints or as part of the `Cube_1111` metadata.
 - `data-dictionary/` — extracted data dictionary.
 - `sql/` — reviewed SQL scripts and execution notes.
 - `sources/oracle/` — supplied Oracle Data Modeler archive.
@@ -64,7 +66,7 @@ The documentation distinguishes the deployed relational platform from dimensiona
 
 ## Project boundary
 
-Deshifrator, ModuleMobile, ModuleStationary, PassportPaint, SQLite, and their C# source excerpts are documented separately in the [Deshifrator documentation repository](https://github.com/ekatmoz88-alt/deshifrator-docs). No technical relationship between that application suite and the Oracle GLOBAL11 model is asserted.
+Deshifrator, ModuleMobile, ModuleStationary, PassportPaint, SQLite, and their C# source excerpts are documented in the [unified PPO Territory project documentation](https://github.com/ekatmoz88-alt/territory-descriptor-unified/tree/main/materials/deshifrator). They are not components of the Oracle GLOBAL11 project.
 
 ## Tags
 

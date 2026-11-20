@@ -27,7 +27,7 @@ This repository is dedicated to the Oracle relational model, the schema changes 
 - `sql/01_extract_global11_core.sql` — read-only extraction queries for the selected DMRS design.
 - `docs/model/GLOBAL11-RELATIONAL-MODEL.md` — relational tables, relationships, and interpretation boundaries.
 - `docs/sources/ORACLE-GLOBAL11-SOURCES.md` — Oracle package inventory and source references.
-- `docs/claim-domain-draft/` — separate, explicitly unverified claim-domain design materials: database architecture review, draft administrator guide, REST/OpenAPI and SOAP/XSD contract fragments, and SQL notes. These drafts are not treated as proof of deployed endpoints or as part of the `Cube_1111` metadata.
+- `docs/claim-domain-draft/` — separate, explicitly unverified claim-domain design materials: [HTML overview](docs/claim-domain-draft/index.html), database architecture review, draft administrator guide, REST/OpenAPI and SOAP/XSD contract fragments, and SQL notes. These drafts are not treated as proof of deployed endpoints or as part of the `Cube_1111` metadata.
 - `data-dictionary/` — extracted data dictionary.
 - `sql/` — reviewed SQL scripts and execution notes.
 - `sources/oracle/` — supplied Oracle Data Modeler archive.

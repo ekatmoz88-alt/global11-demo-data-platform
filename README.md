@@ -22,6 +22,9 @@ This repository is dedicated to the Oracle relational model, the schema changes 
 - `docs/GLOBAL11-OLAP-DOCUMENTATION.md` — OLAP documentation and conceptual patterns.
 - `docs/GLOBAL11-DEMO-SETUP.md` — setup sequence and documented schema changes.
 - `docs/GLOBAL11-DATA-MODELER-DESIGN.md` — project history, dimensional-model construction workflow, role-playing dimensions, hierarchies, measures, and Oracle AW export behavior.
+- `docs/dmrs-global11-analysis.md` — DMRS `global11_demo` design metadata, evidence boundaries and recommended extraction sequence.
+- `docs/dmrs-metadata-catalog.md` — catalogue of DMRS repository metadata tables and their documented fields.
+- `sql/01_extract_global11_core.sql` — read-only extraction queries for the selected DMRS design.
 - `docs/model/GLOBAL11-RELATIONAL-MODEL.md` — relational tables, relationships, and interpretation boundaries.
 - `docs/sources/ORACLE-GLOBAL11-SOURCES.md` — Oracle package inventory and source references.
 - `docs/claim-domain-draft/` — separate, explicitly unverified claim-domain design materials: database architecture review, draft administrator guide, REST/OpenAPI and SOAP/XSD contract fragments, and SQL notes. These drafts are not treated as proof of deployed endpoints or as part of the `Cube_1111` metadata.

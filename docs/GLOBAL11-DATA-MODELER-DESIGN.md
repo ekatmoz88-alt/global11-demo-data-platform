@@ -100,3 +100,19 @@ The broader [OLAP documentation](GLOBAL11-OLAP-DOCUMENTATION.md) also distinguis
 - The Oracle slide deck is attributed to Philip Stoyanov; it is cited as a technical reference, not claimed as the author's work.
 - Jeff Smith's article identifies the `global11_demo.dmd` sample and its accompanying build-description PDF in the Data Modeler sample installation.
 - The design metadata and project build notes are retained as separate evidence from a live database or Analytic Workspace validation.
+
+
+## Archived dimensional architecture summary
+
+An archived source README summarizes the dimensional model as follows:
+
+| Dimension | Pattern stated in source | Documented purpose |
+|---|---|---|
+| Time | Level-based | Enterprise accounting and civil reporting calendars |
+| Customers | Level-based and partitioned | Distribution-network analysis and partitioning key |
+| Shipto_Country | Asymmetric snowflake | Geographical and logistics analysis of drop-off points |
+| Product_VB | Value-based, parent-child | Variable-depth product catalogue |
+
+The detailed DMRS hierarchy export also names Product_d as a separate dimension. The archived summary's four-dimension count and the five named dimensions across the detailed export are not reconciled; the exact dimensional membership requires verification against the original model.
+
+The same source README identifies Oracle SQL Developer Data Modeler v3.5+ XML Schema Layouts as the modeling source and Oracle 12c+ Native Analytic Workspace as a target engine. Other project records refer to Oracle AW 11gR2 and JDBC Global_11r21. These are conflicting historical version statements, not a verified current runtime baseline.

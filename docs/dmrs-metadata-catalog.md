@@ -178,3 +178,18 @@
 3. DDL DMRS repository не доказывает, какие объекты входят в Global11_demo.
 4. Выводы о кардинальности, обязательности, PK/FK и типах должны подтверждаться данными и/или экспортом модели.
 5. При расхождении XML, DMRS-строк и DDL расхождение фиксируется отдельно, а не разрешается догадкой.
+
+
+## DMRS hierarchy UUID catalogue from the source archive
+
+| Metadata UUID | Hierarchy name | Default | Documented level sequence / role |
+|---|---|---:|---|
+| `7FB4E11E-5374-BC52-0BA0-E4104F98F471` | `Hierarchy_5` | Yes | Value-based product hierarchy; `Prod_child_parent` |
+| `74FC446E-9AED-A302-8C8B-ABE97C71F641` | `Shipments_` | No | `SHIP_TO → WAREHOUSE → Region → Total` |
+| `504CC846-EAFF-4903-39FA-61E7B6260189` | `Hierarchy_8` | No | Fiscal calendar: `Month_ → Fiscal_Quarter → Fiscal_Year → Total` |
+| `52829E60-B248-C540-F276-A359DF8EB700` | `Ship_to_couuntry_hier` | No | `SHIP_TO → Account_det → City_lev_def → State_Province → Country` |
+| `B1F12B04-DF5C-45B3-C3F2-120DB5D3F554` | `Cust_country` | Yes | `Shipto_ca → Account_det_ca → City_ca` |
+| `DF6A0774-14E4-A012-C4F1-E96B5D128AD4` | `Hierarchy_7` | No | Civil calendar: `Month_ → Calendar_Quarter → Calendar_Year → Total` |
+| `E9017C03-CAA4-D890-C7F7-670FA806D37F` | `Hierarchy_4` | Yes | Product roll-up: `ITEML → FAMILY → CLASS → TOTAL_PRODUCT` |
+
+The names, UUIDs, default flags and level sequences are transcribed from the archived DMRS summary. They are source metadata, not proof that every hierarchy was deployed or used by a live Analytic Workspace. See the [detailed DMRS-export Mermaid diagram](../model/olap-diagram-dmrs-source.mmd).

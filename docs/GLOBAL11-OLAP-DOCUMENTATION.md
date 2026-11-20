@@ -257,3 +257,10 @@ The role-playing time-key example initializes both SHIP_MONTH_ID and DELIVERY_MO
 The model diagram presents logical relationships. Foreign-key constraints, physical cardinalities, measure additivity and business event-date mappings require validation against the original database schema, source DDL, database metadata and business rules. No live execution or validation of the conceptual OLAP artefacts is claimed here.
 
 For the DMRS metadata evidence and extraction procedure, see the [DMRS Global11 analysis](dmrs-global11-analysis.md), [metadata catalogue](dmrs-metadata-catalog.md) and [read-only extraction script](../sql/01_extract_global11_core.sql).
+
+
+## Source inventory discrepancies and version boundaries
+
+The archived Global11 summary describes a four-dimension cube and lists Time, Customers, Shipto_Country and Product_VB. The detailed DMRS export diagram also names Product_d as a separate dimension. The exact dimensional count and the status/relationship of Product_d must therefore be verified against the original DMRS model; this documentation does not silently resolve the discrepancy.
+
+The archived source README names Oracle 12c+ Native Analytic Workspace as the target engine, while other project materials refer to Oracle AW 11gR2 and JDBC connection Global_11r21. These are conflicting historical version statements. Preserve both as source evidence; do not present either as a verified current runtime version without the original environment or deployment record.

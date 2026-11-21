@@ -4,6 +4,7 @@
 
 ## Документация
 
+- [Аудит Global11 и пять эталонов Oracle](GLOBAL11-REFERENCE-BENCHMARK-AND-AUDIT.md) — архитектурные составляющие, результаты аудита, расхождения и план исправлений.
 - [Подготовка среды и изменения схемы](GLOBAL11-DEMO-SETUP.md)
 - [Проектирование в Oracle SQL Developer Data Modeler — EN](GLOBAL11-DATA-MODELER-DESIGN.md)
 - [Проектирование в Oracle SQL Developer Data Modeler — RU](GLOBAL11-DATA-MODELER-DESIGN.ru.md)

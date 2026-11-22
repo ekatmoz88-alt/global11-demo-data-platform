@@ -17,6 +17,8 @@
 - [DMRS Global11 — анализ метаданных](dmrs-global11-analysis.md)
 - [Каталог DMRS metadata tables и hierarchy UUID](dmrs-metadata-catalog.md)
 - [Подробная DMRS-диаграмма иерархий](model/olap-diagram-dmrs-source.mmd)
+- [Домены и логические типы DMRS](data-dictionary/dmrs-domains-logical-types.md)
+- [Диаграмма доменов и логических типов DMRS](model/dmrs-domains-logical-types.mmd)
 - [Черновые материалы claim-domain](claim-domain-draft/README.md) — отдельная доказательная линия; REST/SOAP-контракты не подтверждают развёрнутые endpoint-ы.
 - [Исходные PDF Global11](https://github.com/ekatmoz88-alt/technical-docs-library/tree/main/02_ORACLE) — оригинальные документы и схемы.
 

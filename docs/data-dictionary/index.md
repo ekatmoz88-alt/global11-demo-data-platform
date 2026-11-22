@@ -14,8 +14,7 @@ Initial scope:
 - Logical data types
 - Logical-to-native type mappings
 - Native-to-logical type mappings
-- Domain-associated values and value ranges
-- Domain check-constraint metadata
+- Domain-associated values, value ranges, and check constraints
 - Relationships between metadata objects
 
 The documentation is limited to evidence available from model diagrams, XML exports, database DDL, and catalog inspection. Undocumented application behavior is out of scope.
@@ -25,11 +24,12 @@ The documentation is limited to evidence available from model diagrams, XML expo
 | Artifact | Purpose | Status |
 | --- | --- | --- |
 | [DMRS_DOMAINS](dmrs-domains.md) | Domain metadata table specification | Draft |
+| [Domains and logical types](dmrs-domains-logical-types.md) | Description of the diagram's eight metadata objects and their visible associations | Draft |
+| [Domains and logical types diagram](../model/dmrs-domains-logical-types.mmd) | Mermaid representation of the supplied one-page model diagram | Draft |
 | DMRS_LOGICAL_TYPES | Logical type metadata specification | Planned |
 | DMRS_LOGICAL_TO_NATIVE | Logical-to-native mapping specification | Planned |
 | DMRS_NATIVE_TO_LOGICAL | Native-to-logical mapping specification | Planned |
-| Domain value metadata | Associated values, ranges, and check-constraint specifications | Planned |
-| Metadata relationship model | Verified entity and referential relationship documentation | Planned |
+| Domain value metadata | Associated values, ranges, and check-constraint specifications | Draft — covered in the combined diagram description |
 
 ## 3. Evidence model
 
@@ -62,6 +62,6 @@ These checks validate documentation structure and consistency. They do not conne
 
 ## 6. Current limitations
 
-The initial source is a model diagram. Physical DDL, constraint enforcement, nullability, index properties, and complete business semantics have not yet been verified.
+The source for the combined domains/logical-types page is a model diagram. Physical DDL, constraint enforcement, nullability, index properties, and complete business semantics have not yet been verified.
 
 **Release rule:** a successful documentation build does not automatically change a specification's evidence status from Draft to Final.

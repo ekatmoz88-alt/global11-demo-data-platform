@@ -1,0 +1,20 @@
+flowchart TB
+    DESIGNS["DMRS_DESIGNS<br/>Design_ID · Design_OVID · Design_Name<br/>Date_Published · Published_By<br/>Persistence_Version · Version_Comments"]
+    DOMAINS["DMRS_DOMAINS<br/>Domain_ID · Domain_Name · OVID<br/>Logical_Type_ID · Logical_Type_OVID<br/>T_Size · T_Precision · T_Scale · Native_Type<br/>LT_Name · DESIGN_ID · Design_OVID · Design_Name<br/>DEFAULT_VALUE · UNIT_OF_MEASURE · Char_Units"]
+    LOGICAL["DMRS_LOGICAL_TYPES<br/>DESIGN_ID · Design_OVID · Design_Name<br/>Logical_Type_ID · OVID · LT_Name"]
+    L2N["DMRS_LOGICAL_TO_NATIVE<br/>DESIGN_ID · Design_OVID · Design_Name<br/>Logical_Type_ID · Logical_Type_OVID · LT_Name<br/>Native_Type · RDBMS_Type · RDBMS_Version<br/>Has_Size · Has_Precision · Has_Scale"]
+    N2L["DMRS_NATIVE_TO_LOGICAL<br/>RDBMS_Type · RDBMS_Version · Native_Type<br/>LT_Name · Logical_Type_ID · Logical_Type_OVID<br/>DESIGN_ID · Design_OVID · DESIGN_NAME"]
+    AVT["DMRS_DOMAIN_AVT<br/>Domain_ID · Domain_OVID · Sequence<br/>Value · Short_Description · Domain_Name · Design_OVID"]
+    RANGES["DMRS_DOMAIN_VALUE_RANGES<br/>Domain_ID · Domain_OVID · Sequence<br/>Begin_Value · End_Value · Short_Description<br/>Domain_Name · Design_OVID"]
+    CHECKS["DMRS_DOMAIN_CHECK_CONSTRAINTS<br/>Domain_ID · Domain_OVID · Sequence<br/>Text · Database_Type · Domain_Name · Design_OVID"]
+
+    DESIGNS -->|"Design_OVID"| DOMAINS
+    DESIGNS -->|"Design_OVID"| LOGICAL
+    DESIGNS -->|"Design_OVID"| L2N
+    DESIGNS -->|"Design_OVID"| N2L
+    LOGICAL -->|"OVID / Logical_Type_OVID"| DOMAINS
+    LOGICAL -->|"OVID / Logical_Type_OVID"| L2N
+    LOGICAL -->|"OVID / Logical_Type_OVID"| N2L
+    DOMAINS -->|"Domain_OVID"| AVT
+    DOMAINS -->|"Domain_OVID"| RANGES
+    DOMAINS -->|"Domain_OVID"| CHECKS

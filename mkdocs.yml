@@ -26,6 +26,8 @@ nav:
   - DMRS Repository Metadata:
       - Overview: data-dictionary/index.md
       - DMRS_DOMAINS: data-dictionary/dmrs-domains.md
+      - Domains and Logical Types: data-dictionary/dmrs-domains-logical-types.md
+      - DMRS domains and logical types diagram: model/dmrs-domains-logical-types.mmd
       - DMRS analysis: dmrs-global11-analysis.md
       - Metadata and hierarchy UUID catalogue: dmrs-metadata-catalog.md
   - Дополнительные проектные материалы:

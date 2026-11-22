@@ -12,30 +12,10 @@
 .hero{padding:70px 0 48px}.eyebrow{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:800}h1{font-size:clamp(2.5rem,6vw,4.6rem);line-height:1.05;letter-spacing:-.05em;margin:14px 0 20px}h2{font-size:1.35rem;margin:0 0 12px}.lead{font-size:1.15rem;color:var(--muted);max-width:760px}.note{padding:18px 20px;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:10px;background:var(--pale);color:var(--muted);margin:25px 0}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:10px 0 58px}.card{border:1px solid var(--line);border-radius:14px;padding:24px;background:#fff;box-shadow:0 8px 28px rgba(16,42,80,.05)}.card p{color:var(--muted);margin:0 0 15px}a{color:var(--blue);text-underline-offset:3px}a:hover{color:#003f91}.links{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}.links a{font-weight:650}.footer{padding:25px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
 @media(max-width:650px){.grid{grid-template-columns:1fr}.hero{padding:48px 0 30px}}
-
-/* Shared portfolio documentation shell */
-.topbar{position:sticky;top:0;z-index:30;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:#37474f;color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.topbar a{color:#fff;font-size:12px}.topbar strong{color:#fff;font-size:13px;font-weight:650}
-.layout{display:grid;grid-template-columns:240px minmax(0,1fr);max-width:1440px;margin:0 auto}
-.sidebar{position:sticky;top:48px;align-self:start;height:calc(100vh - 48px);overflow:auto;padding:24px 16px 32px 20px;background:#f5f7f8;border-right:1px solid #e0e0e0}
-.sidebar p{margin:0 0 10px;color:#607d8b;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.sidebar a{display:block;padding:6px 9px;border-radius:2px;color:#455a64;font-size:12px}
-.sidebar a:hover{background:#e8eef0;color:#263238;text-decoration:none}
-.content{min-width:0;padding:32px 40px 64px}
-.content .wrap{width:100%;max-width:1080px}
-.content header{display:none}
-.content .hero{padding:0 0 28px}
-.content h1{font-size:clamp(25px,2.4vw,30px);font-weight:400;letter-spacing:0}
-.content h2{font-size:20px;font-weight:400}
-.content .note,.content .card{border-radius:2px}
-.content .grid{gap:12px}
-@media(max-width:760px){.layout{grid-template-columns:1fr}.sidebar{position:static;height:auto;overflow:visible;padding:10px 18px;border-right:0;border-bottom:1px solid #e0e0e0}.sidebar nav{display:flex;flex-wrap:wrap;gap:3px 8px}.content{padding:24px 20px 48px}.content .hero{padding:0 0 22px}}
-
 </style>
 </head>
 <body>
-<header class="topbar"><strong>GLOBAL11 / DATA PLATFORM</strong><a href="https://github.com/ekatmoz88-alt/global11-demo-data-platform">GitHub repository ↗</a></header>
-<div class="layout"><aside class="sidebar"><p>Documentation</p><nav><a href="./">Overview</a><a href="./docs/index.md">Documentation index</a><a href="./docs/model/GLOBAL11-RELATIONAL-MODEL.md">Relational model</a><a href="./docs/data-dictionary/index.md">Data dictionary</a><a href="./docs/GLOBAL11-OLAP-DOCUMENTATION.md">OLAP documentation</a><a href="./sql/README.md">SQL scripts</a><a href="./docs/sources/ORACLE-GLOBAL11-SOURCES.md">Source inventory</a></nav></aside><div class="content">
+<header><div class="wrap">GLOBAL11 / DATA PLATFORM</div></header>
 <main class="wrap">
 <section class="hero">
 <div class="eyebrow">Engineering portfolio · Oracle data model</div>
@@ -53,6 +33,5 @@
 </section>
 </main>
 <footer class="wrap footer">GLOBAL11 Demo Data Platform · Documentation and model analysis · <a href="https://github.com/ekatmoz88-alt/global11-demo-data-platform">GitHub repository</a></footer>
-</div></div>
 </body>
 </html>

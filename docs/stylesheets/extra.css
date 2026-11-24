@@ -1,7 +1,7 @@
 :root {
-  --md-primary-fg-color: #37474f;
-  --md-primary-fg-color--dark: #263238;
-  --md-primary-fg-color--light: #455a64;
+  --md-primary-fg-color: #455a64;
+  --md-primary-fg-color--dark: #37474f;
+  --md-primary-fg-color--light: #607d8b;
   --md-accent-fg-color: #455a64;
   --md-default-fg-color: #37474f;
   --md-default-fg-color--light: #607d8b;
@@ -20,7 +20,7 @@ body {
 
 .md-header {
   height: 48px;
-  background: #37474f;
+  background: #455a64;
   box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
 }
 .md-header__inner { height: 48px; }
@@ -106,7 +106,7 @@ body {
 .md-typeset details {
   border-radius: 2px;
 }
-.md-footer { background: #37474f; }
+.md-footer { background: #455a64; }
 
 @media screen and (min-width: 76.25em) {
   .md-sidebar--primary { left: 0; }
